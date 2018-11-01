@@ -20,6 +20,7 @@ RUN \
     php-apcu-bc \
     php-pecl-apcu \
     php-pecl-zendopcache \
+    php-xmlrpc \
     supervisor \
     tar \
     " && \
