@@ -41,8 +41,8 @@ RUN \
   sed -i 's#;opcache.revalidate_freq=2#opcache.revalidate_freq=60#g' /etc/php.d/opcache.ini && \
   sed -i 's#;opcache.enable_cli=0#opcache.enable_cli=1#g' /etc/php.d/opcache.ini
 
-RUN chown -R apache:apache /var/www/html/glpi
 RUN rm /etc/localtime && ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
+
 ADD etc/supervisord.d/httpd.ini /etc/supervisord.d/httpd.ini
 
 RUN rm -rf glpi-$GLPI_VERSION.tgz && yum clean all && rm -rf /var/cache/yum && rm -rf /tmp/*
@@ -50,3 +50,5 @@ RUN rm -rf glpi-$GLPI_VERSION.tgz && yum clean all && rm -rf /var/cache/yum && r
 CMD ["/usr/bin/supervisord","-n","-c","/etc/supervisord.conf"]
 
 EXPOSE 80 443
+
+HEALTHCHECK --interval=2m --timeout=10s CMD curl -f http://localhost/ || exit 1
