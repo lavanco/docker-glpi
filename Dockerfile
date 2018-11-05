@@ -39,7 +39,7 @@ RUN \
   echo "apc.max_file_size = 10M" >> /etc/php.d/apcu.ini && \
   sed -i.orig 's#opcache.memory_consumption=128#opcache.memory_consumption=256#g' /etc/php.d/opcache.ini && \
   sed -i 's#;opcache.revalidate_freq=2#opcache.revalidate_freq=60#g' /etc/php.d/opcache.ini && \
-  sed -i 's#;opcache.enable_cli=0#opcache.enable_cli=1#g' /etc/php.d/opcache.ini && \
+  sed -i 's#;opcache.enable_cli=0#opcache.enable_cli=1#g' /etc/php.d/opcache.ini
 
 RUN chown -R apache:apache /var/www/html/glpi
 RUN rm /etc/localtime && ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
