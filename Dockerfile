@@ -50,8 +50,6 @@ RUN rm -rf glpi-$GLPI_VERSION.tgz && yum clean all && rm -rf /var/cache/yum && r
 
 CMD ["/usr/bin/supervisord","-n","-c","/etc/supervisord.conf"]
 
-VOLUME ["/etc/localtime"]
-
 EXPOSE 80 443
 
 HEALTHCHECK --interval=2m --timeout=10s CMD curl -f http://localhost/ || exit 1
