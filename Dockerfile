@@ -1,7 +1,7 @@
 FROM centos:7
 
 ENV \
-  GLPI_VERSION="9.1.1" \
+  GLPI_VERSION="9.1.7.1" \
   yum_options="-y --setopt=tsflags=nodocs --nogpgcheck"
 
 RUN yum $yum_options --enablerepo=extras install epel-release && \
