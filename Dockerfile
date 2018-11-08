@@ -50,7 +50,7 @@ RUN rm -rf glpi-$GLPI_VERSION.tgz && yum clean all && rm -rf /var/cache/yum && r
 
 CMD ["/usr/bin/supervisord","-n","-c","/etc/supervisord.conf"]
 
-VOLUME /backups
+VOLUME ["/etc/localtime"]
 
 EXPOSE 80 443
 
