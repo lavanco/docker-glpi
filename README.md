@@ -6,7 +6,7 @@ A Dockerfile that installs GLPI
 ```
 git clone https://github.com/lavanco/docker-glpi.git
 cd docker-glpi
-docker build -t lavanco/docker-glpi .
+docker build -t lavanco/glpi .
 ```
 
 ## Usage
@@ -28,7 +28,7 @@ docker run \
        --name glpi -h glpi \
        -p 80:80 -p 443:443 \
        -v /etc/localtime:/etc/localtime:ro \
-       docker-glpi
+       lavanco/glpi
 
 # Access http://localhost
 # Follow instructions to install GLPI.
