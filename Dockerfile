@@ -55,7 +55,7 @@ RUN rm /etc/localtime && ln -s /usr/share/zoneinfo/America/Sao_Paulo /etc/localt
 
 ADD etc/supervisord.d/httpd.ini /etc/supervisord.d/httpd.ini
 
-RUN rm -rf glpi-$GLPI_VERSION.tgz && yum clean all && rm -rf /var/cache/yum && rm -rf /tmp/*
+RUN rm -rf *.tgz && rm -rf *.tar.gz && yum clean all && rm -rf /var/cache/yum && rm -rf /tmp/*
 
 CMD ["/usr/bin/supervisord","-n","-c","/etc/supervisord.conf"]
 
