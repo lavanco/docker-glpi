@@ -27,7 +27,7 @@ RUN \
     tar \
     crontabs \
     " && \
-  yum $yum_options install $yum_packages
+  yum $yumoptions install $yumpackages
 
 RUN \
   curl -L -o glpi-$GLPIVERSION.tgz https://github.com/glpi-project/glpi/releases/download/$GLPIVERSION/glpi-$GLPIVERSION.tgz && \
