@@ -1,7 +1,7 @@
 # docker-glpi
 A Dockerfile that installs GLPI
 
-[![](https://glpi-project.org/wp-content/uploads/2017/03/logo-glpi-bleu-1.png | width=100)](https://glpi-project.org/) 
+<a href="https://glpi-project.org/" title="GLPI Project"><img src="https://glpi-project.org/wp-content/uploads/2017/03/logo-glpi-bleu-1.png" width="148" height="100"></a>
 
 [![Docker layers](https://images.microbadger.com/badges/image/lavanco/glpi.svg)](https://microbadger.com/images/lavanco/glpi) [![Docker Pulls](https://img.shields.io/docker/pulls/lavanco/glpi.svg)](https://hub.docker.com/r/lavanco/glpi/) [![Docker Build Status](https://img.shields.io/docker/build/lavanco/glpi.svg)](https://hub.docker.com/r/lavanco/glpi/) [![GitHub last commit](https://img.shields.io/github/last-commit/lavanco/docker-glpi.svg)](https://github.com/lavanco/docker-glpi)
 
