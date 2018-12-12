@@ -59,4 +59,6 @@ CMD ["/usr/bin/supervisord","-n","-c","/etc/supervisord.conf"]
 
 EXPOSE 80 443
 
+VOLUME /var/www/html/glpi/files
+
 HEALTHCHECK --interval=2m --timeout=10s CMD curl -f http://localhost/ || exit 1
