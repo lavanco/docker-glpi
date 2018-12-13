@@ -33,10 +33,8 @@ RUN yum $yumoptions --enablerepo=extras install epel-release && \
 RUN \
   curl -L -o glpi-$GLPIVERSION.tgz https://github.com/glpi-project/glpi/releases/download/$GLPIVERSION/glpi-$GLPIVERSION.tgz && \
   tar zxvf glpi-$GLPIVERSION.tgz -C /var/www/html/ && \
-  && \
   curl -L -o GLPI-dashboard_plugin-$GLPIPLUGINDASHBOARD-9.1.x.tar.gz https://forge.glpi-project.org/attachments/download/2221/ && \
   ls -lha && tar zxvf GLPI-dashboard_plugin-$GLPIPLUGINDASHBOARD-9.1.x.tar.gz -C /var/www/html/glpi/plugins && \
-  && \
   curl -L -o glpi-ocsinventoryng-$GLPIPLUGINOCS.tar.gz https://github.com/pluginsGLPI/ocsinventoryng/releases/download/$GLPIPLUGINOCS/glpi-ocsinventoryng-$GLPIPLUGINOCS.tar.gz && \
   tar zxvf glpi-ocsinventoryng-$GLPIPLUGINOCS.tar.gz -C /var/www/html/glpi/plugins && \
   chown -R apache:apache /var/www/html/glpi && \
