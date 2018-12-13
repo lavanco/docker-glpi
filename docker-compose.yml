@@ -2,18 +2,18 @@ version: "3"
 
 services:
   glpi:
-	image: lavanco/glpi
-	container_name: glpi
-	hostname: glpi
-	working_dir: /var/www/html/glpi
-	ports:
-	  - "80:80"
+    image: lavanco/glpi
+#    build:
+#      context: .
+    container_name: glpi
+    hostname: glpi
+    working_dir: /var/www/html/glpi
+    ports:
+      - "80:80"
       - "443:443"
-	volumes:
-	  - glpidata:/var/www/html/glpi/files
-	deploy:
-	  restart_policy:
-		condition: unless-stopped
+    volumes:
+      - glpidata:/var/www/html/glpi/files
+    restart: unless-stopped
 
 volumes:
   glpidata:
