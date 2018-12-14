@@ -1,14 +1,14 @@
 # docker-glpi
-A Dockerfile that installs GLPI
+A Dockerfile that installs GLPI;
 
-<a href="https://glpi-project.org/" title="GLPI Project"><img src="https://glpi-project.org/wp-content/uploads/2017/03/logo-glpi-bleu-1.png" width="148" height="100"></a>
+![https://glpi-project.org/](https://raw.githubusercontent.com/glpi-project/glpi/9.4/bugfixes/pics/logos/logo-GLPI-100-black.png)
 
 [![Docker layers](https://images.microbadger.com/badges/image/lavanco/glpi.svg)](https://microbadger.com/images/lavanco/glpi) [![Docker Pulls](https://img.shields.io/docker/pulls/lavanco/glpi.svg)](https://hub.docker.com/r/lavanco/glpi/) [![Docker Build Status](https://img.shields.io/docker/build/lavanco/glpi.svg)](https://hub.docker.com/r/lavanco/glpi/) [![GitHub last commit](https://img.shields.io/github/last-commit/lavanco/docker-glpi.svg)](https://github.com/lavanco/docker-glpi)
 
-This image is based on CentOS operating system and contains the basic packages necessary for the operation of GLPI. Were also included the plugins:
+This image is based on CentOS operating system and contains the basic packages necessary for the operation of [GLPI](https://forge.glpi-project.org/projects/dashboard). Were also included the plugins:
 
-- <a href="https://forge.glpi-project.org/projects/dashboard" title="Dashboard">Dashboard</a>;
-- <a href="https://forge.glpi-project.org/projects/ocsinventoryng" title="ocsinventoryng">OCS Inventory</a>;
+- [Dashboard](https://forge.glpi-project.org/projects/dashboard);
+- [OCS Inventory](https://forge.glpi-project.org/projects/ocsinventoryng);
 
 ## Version
 
@@ -73,4 +73,4 @@ cd docker-glpi
 docker-compose up -d
 ```
 
-Access <a href="http://localhost">http://localhost</a> and follow instructions to install GLPI.
+Access [http://localhost](http://localhost) and follow instructions to install GLPI.
