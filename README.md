@@ -5,7 +5,7 @@ A Dockerfile that installs GLPI;
 
 [![Docker layers](https://images.microbadger.com/badges/image/lavanco/glpi.svg)](https://microbadger.com/images/lavanco/glpi) [![Docker Pulls](https://img.shields.io/docker/pulls/lavanco/glpi.svg)](https://hub.docker.com/r/lavanco/glpi/) [![Docker Build Status](https://img.shields.io/docker/build/lavanco/glpi.svg)](https://hub.docker.com/r/lavanco/glpi/) [![GitHub last commit](https://img.shields.io/github/last-commit/lavanco/docker-glpi.svg)](https://github.com/lavanco/docker-glpi)
 
-This image is based on CentOS operating system and contains the basic packages necessary for the operation of [GLPI](https://forge.glpi-project.org/projects/dashboard). Were also included the plugins:
+This image is based on CentOS operating system and contains the basic packages necessary for the operation of [GLPI](https://glpi-project.org/). Were also included the plugins:
 
 - [Dashboard](https://forge.glpi-project.org/projects/dashboard);
 - [OCS Inventory](https://forge.glpi-project.org/projects/ocsinventoryng);
