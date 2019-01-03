@@ -1,6 +1,9 @@
 FROM centos:7
 
-MAINTAINER "Leandro Avanco <leandro.avanco@gmail.com>"
+LABEL maintainer="Leandro Avanco <leandro.avanco@gmail.com>" \
+      glpi.version="9.1.7.1" \
+      glpi.plugin.dashboard="0.9.0" \
+      glpi.plugin.ocs="1.3.5" \
 
 ENV \
   GLPIVERSION="9.1.7.1" \
