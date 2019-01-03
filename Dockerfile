@@ -1,5 +1,7 @@
 FROM centos:7
 
+MAINTAINER "Leandro Avanco <leandro.avanco@gmail.com>"
+
 ENV \
   GLPIVERSION="9.1.7.1" \
   GLPIPLUGINDASHBOARD="0.9.0" \
