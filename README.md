@@ -24,13 +24,13 @@ From Git Hub:
 ```
 git clone https://github.com/lavanco/docker-glpi.git
 cd docker-glpi
-docker build -t lavanco/glpi .
+docker build -t lavanco/glpi:9.1.7.1 .
 ```
 
 From Docker Hub:
 
 ```
-docker pull lavanco/glpi
+docker pull lavanco/glpi:9.1.7.1
 ```
 
 ### Usage
@@ -60,7 +60,7 @@ docker run \
        -p 80:80 -p 443:443 \
        -v /etc/localtime:/etc/localtime:ro \
        -v glpidata:/var/www/html/glpi \
-       lavanco/glpi
+       lavanco/glpi:9.1.7.1
 ```
 GLPI container using docker-compose
 

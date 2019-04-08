@@ -2,7 +2,7 @@ version: "3"
 
 services:
   glpi:
-    image: lavanco/glpi
+    image: lavanco/glpi:9.1.7.1
 #    build:
 #      context: .
     container_name: glpi
@@ -13,7 +13,9 @@ services:
       - "443:443"
     volumes:
       - glpidata:/var/www/html/glpi/files
+      - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
 
 volumes:
   glpidata:
+    external: true

@@ -45,6 +45,7 @@ RUN \
 
 RUN \
   sed -i.orig 's#DocumentRoot "\/var\/www\/html\"#DocumentRoot "\/var\/www\/html\/glpi\"#g' /etc/httpd/conf/httpd.conf && \
+  sed -i.orig 's#         " - Copyright (C) 2003-2015 INDEPNET Development Team".#         " - Copyright (C) 2003-2015 INDEPNET Development Team".\n         "</a>".\n         "<a href=\\"https://github.com/lavanco\/\\" title=\\"lavanco\\" class=\\"copyright\\" target=\\"_blank\\">".\n         " - Dockerized by lavanco 2019".#g' /var/www/html/glpi/inc/html.class.php && \
   sed -i.orig 's#;date.timezone =#date.timezone = America/Sao_Paulo#g' /etc/php.ini && \
   sed -i.orig 's#;apc.shm_size=32M#apc.shm_size=128M#g' /etc/php.d/apcu.ini && \
   echo "apc.shm_segments = 1" >> /etc/php.d/apcu.ini && \
