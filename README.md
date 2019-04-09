@@ -35,33 +35,6 @@ docker pull lavanco/glpi:9.1.7.1
 
 ### Usage
 
-DB container:
-
-```
-docker volume create mysqldata
-
-docker run \
-       -d \
-       --name mariadb -h mariadb \
-       -e MYSQL_ROOT_PASSWORD=rootpassword \
-       -p 3306:3306 \
-       -v /etc/localtime:/etc/localtime:ro \
-       -v mysqldata:/var/lib/mysql \
-        mariadb
-```
-GLPI container using ` docker run `
-
-```
-docker volume create glpidata
-
-docker run \
-       -d \
-       --name glpi -h glpi \
-       -p 80:80 -p 443:443 \
-       -v /etc/localtime:/etc/localtime:ro \
-       -v glpidata:/var/www/html/glpi \
-       lavanco/glpi:9.1.7.1
-```
 GLPI container using docker-compose
 
 
@@ -70,7 +43,40 @@ git clone https://github.com/lavanco/docker-glpi.git
 
 cd docker-glpi
 
+docker network create -d bridge prod
+docker volume create glpi-data
+docker volume create mysql-data
+
 docker-compose up -d
+```
+
+GLPI container using ` docker run `
+
+```
+docker network create -d bridge prod
+
+docker volume create mysql-data
+
+docker run \
+       -d \
+       --name mariadb -h mariadb \
+       -e MYSQL_ROOT_PASSWORD=rootpassword \
+       -p 3306:3306 \
+       -v mysql-data:/var/lib/mysql \
+       -v /etc/localtime:/etc/localtime:ro \
+       --network prod \
+       mariadb:10.3.14
+
+docker volume create glpi-data
+
+docker run \
+       -d \
+       --name glpi -h glpi \
+       -p 80:80 -p 443:443 \
+       -v glpi-data:/var/www/html/glpi \
+       -v /etc/localtime:/etc/localtime:ro \
+       --network prod \
+       lavanco/glpi:9.1.7.1
 ```
 
 Access [http://localhost](http://localhost) and follow instructions to install GLPI.

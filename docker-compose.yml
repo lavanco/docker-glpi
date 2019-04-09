@@ -1,10 +1,13 @@
+
 version: "3"
 
 services:
   glpi:
+    depends_on:
+      - "mariadb"
     image: lavanco/glpi:9.1.7.1
-#    build:
-#      context: .
+    build:
+      context: ./dockerfile_glpi/.
     container_name: glpi
     hostname: glpi
     working_dir: /var/www/html/glpi
@@ -12,10 +15,37 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - glpidata:/var/www/html/glpi/files
+      - glpi-data:/var/www/html/glpi/files
       - /etc/localtime:/etc/localtime:ro
     restart: unless-stopped
+    networks:
+      - prod
+
+  mariadb:
+    image: mariadb:10.3.14
+    build:
+      context: .
+    container_name: mariadb
+    hostname: mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=rootpassword
+    working_dir: /var/lib/mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    networks:
+      - prod
 
 volumes:
-  glpidata:
+  mysql-data:
     external: true
+  glpi-data:
+    external: true
+
+networks:
+  prod:
+    external:
+      name: prod
