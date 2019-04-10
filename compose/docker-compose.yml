@@ -7,7 +7,7 @@ services:
       - "mariadb"
     image: lavanco/glpi:9.1.7.1
     build:
-      context: ./dockerfile_glpi/.
+      context: ../dockerfile_glpi/
     container_name: glpi
     hostname: glpi
     working_dir: /var/www/html/glpi
