@@ -17,47 +17,34 @@ This image is based on CentOS operating system and contains the basic packages n
 - OCS Inventory plugin: 1.3.5
 
 
-## Installation
+## Get Docker Images
 
-From Git Hub:
-
-```
-git clone https://github.com/lavanco/docker-glpi.git
-cd docker-glpi
-docker build -t lavanco/glpi:9.1.7.1 .
-```
-
-From Docker Hub:
+From Docker Hub (this image is ready to use):
 
 ```
 docker pull lavanco/glpi:9.1.7.1
 ```
 
-### Usage
-
-GLPI container using docker-compose
-
+From Github (it needs to build image first):
 
 ```
 git clone https://github.com/lavanco/docker-glpi.git
 
 cd docker-glpi
 
-docker network create -d bridge prod
-docker volume create glpi-data
-docker volume create mysql-data
-
-docker-compose up -d
+docker build -t lavanco/glpi:9.1.7.1 .
 ```
+
+### Usage
 
 GLPI container using ` docker run `
 
 ```
-docker network create -d bridge prod
+# docker network create -d bridge prod
 
-docker volume create mysql-data
+# docker volume create mysql-data
 
-docker run \
+# docker run \
        -d \
        --name mariadb -h mariadb \
        -e MYSQL_ROOT_PASSWORD=rootpassword \
@@ -67,9 +54,9 @@ docker run \
        --network prod \
        mariadb:10.3.14
 
-docker volume create glpi-data
+# docker volume create glpi-data
 
-docker run \
+# docker run \
        -d \
        --name glpi -h glpi \
        -p 80:80 -p 443:443 \
@@ -77,6 +64,20 @@ docker run \
        -v /etc/localtime:/etc/localtime:ro \
        --network prod \
        lavanco/glpi:9.1.7.1
+```
+
+GLPI container using docker-compose (it needs to get repository from Github)
+
+```
+cd docker-glpi
+
+docker network create -d bridge prod
+
+docker volume create glpi-data
+
+docker volume create mysql-data
+
+docker-compose -f compose/docker-compose.yml -p glpi-app up -d
 ```
 
 Access [http://localhost](http://localhost) and follow instructions to install GLPI.
