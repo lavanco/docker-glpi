@@ -5,11 +5,16 @@ LABEL maintainer="Leandro Avanco <leandro.avanco@gmail.com>" \
       glpi.plugin.dashboard="0.9.0" \
       glpi.plugin.ocs="1.3.5"
 
-ENV \
+ARG \
+  yumoptions="-y --setopt=tsflags=nodocs --nogpgcheck"
   GLPIVERSION="9.1.7.1" \
   GLPIPLUGINDASHBOARD="0.9.0" \
-  GLPIPLUGINOCS="1.3.5" \
-  yumoptions="-y --setopt=tsflags=nodocs --nogpgcheck"
+  GLPIPLUGINOCS="1.3.5"
+
+ENV \
+  GLPIVERSION=$GLPIVERSION \
+  GLPIPLUGINDASHBOARD=$GLPIPLUGINDASHBOARD \
+  GLPIPLUGINOCS=$GLPIPLUGINOCS
 
 RUN yum $yumoptions --enablerepo=extras install epel-release && \
   yum makecache fast && \
