@@ -27,8 +27,7 @@ services:
       context: .
     container_name: mariadb
     hostname: mariadb
-    environment:
-      - MYSQL_ROOT_PASSWORD=rootpassword
+    env-file: db.env
     working_dir: /var/lib/mysql
     ports:
       - "3306:3306"
@@ -40,14 +39,12 @@ services:
       - prod
 
 volumes:
-
   mysql-data:
     external: true
   glpi-data:
     external: true
 
 networks:
-
   prod:
     external:
       name: prod

@@ -22,22 +22,48 @@ This image is based on CentOS operating system and contains the basic packages n
 From Docker Hub (this image is ready to use):
 
 ```
-docker pull lavanco/glpi:9.1.7.1
+# docker pull lavanco/glpi:9.1.7.1
 ```
 
 From Github (it needs to build image first):
 
 ```
-git clone https://github.com/lavanco/docker-glpi.git
+# git clone https://github.com/lavanco/docker-glpi.git
 
-cd docker-glpi
+# cd docker-glpi
 
-docker build -t lavanco/glpi:9.1.7.1 .
+# docker build -t lavanco/glpi:9.1.7.1 .
 ```
 
 ### Usage
 
-GLPI container using ` docker run `
+GLPI container using `make` (it needs to get repository from Github):
+
+```
+# cd docker-glpi
+
+# make create-dep
+
+# make app-up
+```
+
+See `Makefile` to see other options.
+
+GLPI container using docker-compose (it needs to get repository from Github):
+
+```
+# cd docker-glpi
+
+# docker network create -d bridge prod
+
+# docker volume create glpi-data
+
+# docker volume create mysql-data
+
+# docker-compose -f compose/docker-compose.yml -p glpi-app up -d
+```
+
+GLPI container using ` docker run `:
 
 ```
 # docker network create -d bridge prod
@@ -47,7 +73,7 @@ GLPI container using ` docker run `
 # docker run \
        -d \
        --name mariadb -h mariadb \
-       -e MYSQL_ROOT_PASSWORD=rootpassword \
+       --env-file compose/db.env \
        -p 3306:3306 \
        -v mysql-data:/var/lib/mysql \
        -v /etc/localtime:/etc/localtime:ro \
@@ -64,20 +90,6 @@ GLPI container using ` docker run `
        -v /etc/localtime:/etc/localtime:ro \
        --network prod \
        lavanco/glpi:9.1.7.1
-```
-
-GLPI container using docker-compose (it needs to get repository from Github)
-
-```
-cd docker-glpi
-
-docker network create -d bridge prod
-
-docker volume create glpi-data
-
-docker volume create mysql-data
-
-docker-compose -f compose/docker-compose.yml -p glpi-app up -d
 ```
 
 Access [http://localhost](http://localhost) and follow instructions to install GLPI.
