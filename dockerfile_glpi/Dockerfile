@@ -6,7 +6,7 @@ LABEL maintainer="Leandro Avanco <leandro.avanco@gmail.com>" \
       glpi.plugin.ocs="1.3.5"
 
 ARG \
-  yumoptions="-y --setopt=tsflags=nodocs --nogpgcheck"
+  yumoptions="-y --setopt=tsflags=nodocs --nogpgcheck" \
   GLPIVERSION="9.1.7.1" \
   GLPIPLUGINDASHBOARD="0.9.0" \
   GLPIPLUGINOCS="1.3.5"
