@@ -27,7 +27,7 @@ services:
       context: .
     container_name: mariadb
     hostname: mariadb
-    env-file: db.env
+    env_file: db.env
     working_dir: /var/lib/mysql
     ports:
       - "3306:3306"

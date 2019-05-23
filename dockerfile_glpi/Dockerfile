@@ -1,15 +1,16 @@
-FROM centos:7
+ARG DISTRO=centos
+ARG DISTROVERSION=7
+ARG yumoptions="-y --setopt=tsflags=nodocs --nogpgcheck"
+ARG GLPIVERSION="9.1.7.1"
+ARG GLPIPLUGINDASHBOARD="0.9.0"
+ARG GLPIPLUGINOCS="1.3.5"
 
-LABEL maintainer="Leandro Avanco <leandro.avanco@gmail.com>" \
-      glpi.version="9.1.7.1" \
-      glpi.plugin.dashboard="0.9.0" \
-      glpi.plugin.ocs="1.3.5"
+FROM $DISTRO:$DISTROVERSION
 
-ARG \
-  yumoptions="-y --setopt=tsflags=nodocs --nogpgcheck" \
-  GLPIVERSION="9.1.7.1" \
-  GLPIPLUGINDASHBOARD="0.9.0" \
-  GLPIPLUGINOCS="1.3.5"
+LABEL maintainer="Leandro Avanco <leandro.avanco@gmail.com>"
+LABEL glpi.version=$GLPIVERSION
+LABEL glpi.plugin.dashboard=$GLPIPLUGINDASHBOARD
+LABEL glpi.plugin.ocs=$GLPIPLUGINOCS
 
 ENV \
   GLPIVERSION=$GLPIVERSION \
