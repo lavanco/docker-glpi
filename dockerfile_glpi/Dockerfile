@@ -1,21 +1,18 @@
 ARG DISTRO=centos
 ARG DISTROVERSION=7
-ARG yumoptions="-y --setopt=tsflags=nodocs --nogpgcheck"
+
+FROM $DISTRO:$DISTROVERSION
+
 ARG GLPIVERSION="9.1.7.1"
 ARG GLPIPLUGINDASHBOARD="0.9.0"
 ARG GLPIPLUGINOCS="1.3.5"
-
-FROM $DISTRO:$DISTROVERSION
 
 LABEL maintainer="Leandro Avanco <leandro.avanco@gmail.com>"
 LABEL glpi.version=$GLPIVERSION
 LABEL glpi.plugin.dashboard=$GLPIPLUGINDASHBOARD
 LABEL glpi.plugin.ocs=$GLPIPLUGINOCS
 
-ENV \
-  GLPIVERSION=$GLPIVERSION \
-  GLPIPLUGINDASHBOARD=$GLPIPLUGINDASHBOARD \
-  GLPIPLUGINOCS=$GLPIPLUGINOCS
+ARG yumoptions="-y --setopt=tsflags=nodocs --nogpgcheck"
 
 RUN yum $yumoptions --enablerepo=extras install epel-release && \
   yum makecache fast && \

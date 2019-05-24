@@ -30,7 +30,7 @@ From Github (it needs to build image first):
 ```
 # git clone https://github.com/lavanco/docker-glpi.git
 
-# cd docker-glpi
+# cd docker-glpi/docker_file
 
 # docker build -t lavanco/glpi:9.1.7.1 .
 ```
